@@ -21,3 +21,23 @@ a {
   color: black;
 
 }
+
+#supportHero{
+  background-color: #387ed1;
+  color: white;
+}
+
+#supportWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 150px;
+ 
+}
+
+#supportHero input {
+  padding: 20px 50px;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+}
