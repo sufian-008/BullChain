@@ -5,7 +5,8 @@ export default function PricingPage() {
   return (
     <>
       
-       
+       <Hero/>
+       <Brokerage/>
 
     </>
   )
