@@ -4,6 +4,9 @@ require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
 
+const bodyParser = require('body-parser');
+const cors = require("cors");
+
 // Importing Mongoose models for Holdings and Positions
 const { HoldingsModel } = require('./model/HoldingModel');
 const { PositionModel } = require('./model/PositionModel');
@@ -14,8 +17,16 @@ const PORT = process.env.PORT || 3002;
 // Get MongoDB connection string from .env
 const uri = process.env.MONGO_URL;
 
+
+
+
 // Initialize Express application
 const app = express();
+
+
+app.use(cors());
+app.use(bodyParser.json());
+
 
 /*
 =====================================
