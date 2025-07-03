@@ -3,6 +3,8 @@ require('dotenv').config();
 
 const express = require("express");
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
+const authRoute = require("./routes/AuthRoutes");
 
 const bodyParser = require('body-parser');
 const cors = require("cors");
@@ -10,6 +12,8 @@ const cors = require("cors");
 // Importing Mongoose models for Holdings and Positions
 const { HoldingsModel } = require('./model/HoldingModel');
 const { PositionModel } = require('./model/PositionModel');
+const { OrderModel } = require('./model/OrderModel');
+
 
 // Set up server port from environment or default to 3002
 const PORT = process.env.PORT || 3002;
@@ -24,8 +28,14 @@ const uri = process.env.MONGO_URL;
 const app = express();
 
 
-app.use(cors());
-app.use(bodyParser.json());
+app.use(cors({
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  }));
+app.use(express.json()); 
+app.use(express.urlencoded({ extended: true }));
+app.use("/", authRoute);
+
 
 
 /*
@@ -96,12 +106,28 @@ app.get('/allPositions', async (req, res) => {
     res.json(allPositions); // Send data as JSON
 });
 
+app.post('/newOrder', async(req, res) =>{
+   let newOrder = new OrderModel({
+    name: req.body.name,
+    qty: req.body.qty,
+    price: req.body.price,
+    model: req.body.model,
+   });
+
+   newOrder.save();
+
+});
+
+
 
 app.listen(PORT, () => {
     console.log("App started");
 
     // Connect to MongoDB using Mongoose
-    mongoose.connect(uri)
+    mongoose.connect(uri,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
         .then(() => console.log("DB Connected"))
         .catch((err) => console.error("MongoDB connection error:", err));
 });
