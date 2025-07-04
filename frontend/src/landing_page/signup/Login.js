@@ -3,16 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./Signup.css";
+import "./Login.css"; 
 
-const Signup = () => {
+const Login = () => {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
     email: "",
-    username: "",
     password: "",
   });
-  const { email, password, username } = inputValue;
+  const { email, password } = inputValue;
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -27,35 +26,39 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email || !password || !username) {
+    if (!email || !password) {
       return handleError("All fields are required");
     }
+
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/signup",
+        "http://localhost:3002/login",
         inputValue,
         { withCredentials: true }
       );
+
       const { success, message } = data;
       if (success) {
         handleSuccess(message);
-        setTimeout(() => navigate("/"), 1000);
+        setTimeout(() => {window.location.href = "http://localhost:3001";
+}, 1000);
       } else {
         handleError(message);
       }
     } catch (error) {
-      handleError(error.response?.data?.message || "Signup failed");
+      console.error("Login error:", error);
+      handleError(error.response?.data?.message || "Login failed");
     }
 
-    setInputValue({ email: "", password: "", username: "" });
+    setInputValue({ email: "", password: "" });
   };
 
   return (
     <div className="form_container">
-      <h2>Signup Account</h2>
+      <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="email">Email</label>
+          <label>Email</label>
           <input
             type="email"
             name="email"
@@ -65,7 +68,7 @@ const Signup = () => {
           />
         </div>
         <div>
-          <label htmlFor="password">Password</label>
+          <label>Password</label>
           <input
             type="password"
             name="password"
@@ -74,19 +77,9 @@ const Signup = () => {
             onChange={handleOnChange}
           />
         </div>
-        <div>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            name="username"
-            value={username}
-            placeholder="Enter your username"
-            onChange={handleOnChange}
-          />
-        </div>
-        <button type="submit">Submit</button>
+        <button type="submit">Login</button>
         <span>
-          Already have an account? <Link to={"/login"}>Login</Link>
+          Don't have an account? <Link to={"/signup"}>Signup</Link>
         </span>
       </form>
       <ToastContainer />
@@ -94,4 +87,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;

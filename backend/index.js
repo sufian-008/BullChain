@@ -4,9 +4,8 @@ require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
-const authRoute = require("./routes/AuthRoutes");
 
-const bodyParser = require('body-parser');
+
 const cors = require("cors");
 
 // Importing Mongoose models for Holdings and Positions
@@ -28,12 +27,18 @@ const uri = process.env.MONGO_URL;
 const app = express();
 
 
+
+
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); 
+app.use(cookieParser());
 app.use(cors({
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: "http://localhost:3000", 
     credentials: true,
   }));
-app.use(express.json()); 
-app.use(express.urlencoded({ extended: true }));
+
+const authRoute = require("./routes/AuthRoutes");
 app.use("/", authRoute);
 
 

@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 
 module.exports.Signup = async (req, res) => {
   try {
+    console.log("Body received from form or JSON:", req.body);
     const { email, password, username, createdAt } = req.body;
 
     const existingUser = await User.findOne({ email });
@@ -25,5 +26,24 @@ module.exports.Signup = async (req, res) => {
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Internal Server Error" });
+    
   }
+
+   
 };
+
+
+const jwt = require("jsonwebtoken");
+
+module.exports.verifyUser = (req, res) => {
+  const token = req.cookies.token;
+  if (!token) return res.json({ status: false });
+
+  jwt.verify(token, process.env.TOKEN_KEY, async (err, data) => {
+    if (err) return res.json({ status: false });
+    const user = await User.findById(data.id);
+    if (!user) return res.json({ status: false });
+    return res.json({ status: true, user: user.username });
+  });
+};
+
