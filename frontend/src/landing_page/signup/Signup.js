@@ -32,7 +32,7 @@ const Signup = () => {
     }
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/signup",
+        "http://localhost:3002/api/signup",
         inputValue,
         { withCredentials: true }
       );
