@@ -34,21 +34,22 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); 
 app.use(cookieParser());
 app.use(cors({
-    origin: "http://localhost:3000", 
+    origin: ["http://localhost:3000", "http://localhost:3001"],
     credentials: true,
   }));
 
-const authRoute = require("./routes/AuthRoutes");
-app.use("/", authRoute);
+const authRouteSignUp = require("./routes/AuthRoutes");
+app.use("/api", authRouteSignUp);
+
+const authROuteLogin = require("./routes/LoginAuth");
+app.use("/api",authROuteLogin);
+
+const verifyUser = require("./routes/AuthRoutes");
+app.use("/api", verifyUser);
 
 
 
-/*
-=====================================
- Sample Routes to Add Dummy Data
- Uncomment if needed to insert mock data
-=====================================
-*/
+
 
 // Route to add dummy holdings to the database
 // app.get('/addHoldings', async (req, res) => {
@@ -93,11 +94,7 @@ app.use("/", authRoute);
 //     res.send("Positions data inserted successfully!");
 // });
 
-/*
-=====================================
-      Data Fetch Routes
-=====================================
-*/
+
 
 // Fetch all holdings from the database
 app.get('/allHoldings', async (req, res) => {

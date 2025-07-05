@@ -12,9 +12,9 @@ module.exports.Signup = async (req, res) => {
       return res.status(409).json({ message: "User already exists" });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 12);
 
-    const user = await User.create({ email, password: hashedPassword, username, createdAt });
+    const user = await User.create({ email, password, username, createdAt });
+    console.log(user)
     const token = createSecretToken(user._id);
 
     res.cookie("token", token, {
@@ -33,17 +33,5 @@ module.exports.Signup = async (req, res) => {
 };
 
 
-const jwt = require("jsonwebtoken");
 
-module.exports.verifyUser = (req, res) => {
-  const token = req.cookies.token;
-  if (!token) return res.json({ status: false });
-
-  jwt.verify(token, process.env.TOKEN_KEY, async (err, data) => {
-    if (err) return res.json({ status: false });
-    const user = await User.findById(data.id);
-    if (!user) return res.json({ status: false });
-    return res.json({ status: true, user: user.username });
-  });
-};
 
