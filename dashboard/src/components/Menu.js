@@ -23,7 +23,7 @@ const Menu = () => {
 
       try {
         const { data } = await axios.post(
-          "http://localhost:3002/verifyUser",
+          "http://localhost:3002//verifyUser",
           {},
           { withCredentials: true }
         );
