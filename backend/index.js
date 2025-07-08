@@ -41,7 +41,7 @@ app.use(cors({
 const authRouteSignUp = require("./routes/AuthRoutes");
 app.use("/api", authRouteSignUp);
 
-const authROuteLogin = require("./routes/LoginAuth");
+const authROuteLogin = require("./routes/AuthRoutes");
 app.use("/api",authROuteLogin);
 
 const verifyUser = require("./routes/AuthRoutes");
