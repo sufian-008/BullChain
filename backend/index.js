@@ -35,7 +35,7 @@ app.use(cookieParser());
 
 // Configure CORS to allow requests from frontend domains
 app.use(cors({
-    origin: ["https://bull-chain-tau.vercel.app", "https://bullchain-1.onrender.com"],
+    origin: ["https://bullchain-2.onrender.com", "https://bullchain-1.onrender.com"],
     credentials: true, // Allow cookies to be sent with requests
 }));
 
