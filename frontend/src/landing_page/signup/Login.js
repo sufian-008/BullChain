@@ -47,7 +47,7 @@ const Login = () => {
       } else if (success) {
         handleSuccess(message);
         setTimeout(() => {
-          window.location.href = "http://localhost:3001";
+          window.location.href = "https://bullchain-1.onrender.com";
         }, 1000);
       } else {
         handleError(message);
@@ -73,7 +73,7 @@ const Login = () => {
       if (success) {
         handleSuccess("OTP verified successfully!");
         setTimeout(() => {
-          window.location.href = "https://bull-chain-42g4.vercel.app";
+          window.location.href = "https://bullchain-1.onrender.com";
         }, 1000);
       } else {
         handleError(message || "Invalid OTP");
