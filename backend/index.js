@@ -15,7 +15,7 @@ const { OrderModel } = require('./model/OrderModel');
 
 // ========================= Configuration =========================
 // Define server port from environment or fallback to 3002
-const PORT = "https://bullchain.onrender.com";
+const PORT = process.env.PORT || 3002;
 
 // MongoDB URI from environment variables
 const uri = process.env.MONGO_URL;
