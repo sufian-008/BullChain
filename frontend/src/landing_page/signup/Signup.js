@@ -32,7 +32,7 @@ const Signup = () => {
     }
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/api/signup",
+        "https://bullchain.onrender.com/api/signup",
         inputValue,
         { withCredentials: true }
       );

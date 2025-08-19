@@ -33,7 +33,7 @@ const Login = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/api/login",
+        "https://bullchain.onrender.com/api/login",
         inputValue,
         { withCredentials: true }
       );
@@ -64,7 +64,7 @@ const Login = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/api/verify-otp",
+        "https://bullchain.onrender.com/api/verify-otp",
         { otp, token: tempToken },
         { withCredentials: true }
       );
@@ -73,7 +73,7 @@ const Login = () => {
       if (success) {
         handleSuccess("OTP verified successfully!");
         setTimeout(() => {
-          window.location.href = "http://localhost:3001";
+          window.location.href = "https://bull-chain-42g4.vercel.app";
         }, 1000);
       } else {
         handleError(message || "Invalid OTP");
