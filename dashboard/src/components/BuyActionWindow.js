@@ -60,7 +60,7 @@ const BuyActionWindow = ({ uid }) => {
           <Link className="btn btn-blue" onClick={handleBuyClick}>
             Buy
           </Link>
-          <Link to="" className="btn btn-grey" onClick={handleCancelClick}>
+          <Link to="/" className="btn btn-grey" onClick={handleCancelClick}>
             Cancel
           </Link>
         </div>

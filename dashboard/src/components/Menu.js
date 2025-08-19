@@ -1,52 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
+//  I have to solve cookies verification here.
 
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
-  const [username, setUsername] = useState("");
+  const [username] = useState("User");
 
   const navigate = useNavigate();
-  const [cookies, , removeCookie] = useCookies(["token"]);
-
-  useEffect(() => {
-    const verifyCookie = async () => {
-      if (!cookies.token) {
-        navigate("/");
-        return;
-      }
-
-      try {
-        const { data } = await axios.post(
-          "http://localhost:3002//verifyUser",
-          {},
-          { withCredentials: true }
-        );
-
-        const { status, user } = data;
-        if (status) {
-          setUsername(user.username || user);
-          toast.success(`Hello ${user.username || user}`, {
-            position: "top-right",
-          });
-        } else {
-          removeCookie("token");
-          navigate("/");
-        }
-      } catch (error) {
-        console.error("Verification failed:", error);
-        removeCookie("token");
-        navigate("/");
-      }
-    };
-
-    verifyCookie();
-  }, [cookies, navigate, removeCookie]);
+  const [, , removeCookie] = useCookies(["token"]);
 
   const handleMenuClick = (index) => {
     setSelectedMenu(index);
@@ -104,8 +70,8 @@ const Menu = () => {
         <hr />
 
         <div className="profile" onClick={handleProfileClick} style={{ cursor: "pointer" }}>
-          <div className="avatar">{username ? username.charAt(0).toUpperCase() : "U"}</div>
-          <p className="username">{username || "User"}</p>
+          <div className="avatar">{username.charAt(0).toUpperCase()}</div>
+          <p className="username">{username}</p>
         </div>
 
         {isProfileDropdownOpen && (

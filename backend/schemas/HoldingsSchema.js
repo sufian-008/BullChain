@@ -12,4 +12,4 @@ const HoldingsSchema = new Schema({
   day: String,
 });
 
-module.exports = { HoldingsSchema }; // ✅ Make sure this line exists
+module.exports = { HoldingsSchema }; 

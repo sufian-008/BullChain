@@ -80,6 +80,7 @@ const WatchList = () => {
           type="text"
           name="search"
           id="search"
+          style={{color:"black"}}
           placeholder="Search eg:infy, bse, nifty fut weekly, gold mcx"
           className="search"
         />
@@ -119,7 +120,7 @@ const WatchListItem = ({ stock }) => {
           {stock.isDown ? (
             <KeyboardArrowDown className="down" />
           ) : (
-            <KeyboardArrowUp className="down" />
+            <KeyboardArrowUp className="up" />
           )}
           <span className="price">{stock.price}</span>
         </div>
@@ -143,7 +144,6 @@ const WatchListActions = ({ uid }) => {
           title="Buy (B)"
           placement="top"
           arrow
-          TransitionComponent={Grow}
           onClick={handleBuyClick}
         >
           <button className="buy">Buy</button>
