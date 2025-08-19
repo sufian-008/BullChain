@@ -6,7 +6,7 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ backgroundColor: "#FFF" }}>
       <div className="container p-2">
         <Link className="navbar-brand" to="#">
-          <img src="images/logo.svg" alt="Logo" style={{ width: "25%" }} />
+          <img src="images/BullChain Logo.png" alt="Logo" style={{ width: "25%" }} />
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -16,7 +16,7 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" to="/signup">Sign Up</Link>
+              <Link className="nav-link active" to="/signup">SignUp</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link active" to="/about">About</Link>

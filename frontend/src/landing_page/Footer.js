@@ -6,9 +6,9 @@ function Footer() {
       <div className='container border-top mt-5'>
         <div className='row mt-5'>
           <div className='col'>
-            <img src='images/logo.svg' alt='Zerodha Logo' style={{ width: "50%" }} />
+            <img src='images/BullChain Logo.png' alt='BullChain Logo' style={{ width: "50%" }} />
             <p className='text-muted mt-3' style={{ fontSize: "12px" }}>
-              &copy; 2010 - 2025, Zerodha Broking Ltd. All rights reserved.
+              &copy; 2010 - 2025, BullChain Broking Ltd. All rights reserved.
             </p>
           </div>
 
@@ -42,8 +42,8 @@ function Footer() {
             <a href='' className='d-block mb-2'>Philosophy</a>
             <a href='' className='d-block mb-2'>Press & media</a>
             <a href='' className='d-block mb-2'>Careers</a>
-            <a href='' className='d-block mb-2'>Zerodha Cares (CSR)</a>
-            <a href='' className='d-block mb-2'>Zerodha.tech</a>
+            <a href='' className='d-block mb-2'>BullChain Cares (CSR)</a>
+            <a href='' className='d-block mb-2'>BullChain.tech</a>
             <a href='' className='d-block mb-2'>Open source</a>
           </div>
 
@@ -61,14 +61,14 @@ function Footer() {
 
         <div className=' text-muted mt-4' style={{ fontSize: "12px" }}>
           <p>
-            Zerodha Broking Ltd.: Member of NSE, BSE & MCX – SEBI Registration no.: INZ000031633
-            CDSL/NSDL: Depository services through Zerodha Broking Ltd. – SEBI Registration no.: IN-DP-431-2019
-            Commodity Trading through Zerodha Commodities Pvt. Ltd. MCX: 46025; NSE-50001 – SEBI Registration no.: INZ000038238
-            Registered Address: Zerodha Broking Ltd., #153/154, 4th Cross, Dollars Colony, Opp. Clarence Public School, J.P Nagar 4th Phase, Bengaluru - 560078, Karnataka, India.
+            BullChain Broking Ltd.: Member of NSE, BSE & MCX – SEBI Registration no.: xxxxxxxxxx
+            CDSL/NSDL: Depository services through BullChain Broking Ltd. – SEBI Registration no.: xxxxxxxx
+            Commodity Trading through BullChain Commodities Pvt. Ltd. MCX: 46025; NSE-50001 – SEBI Registration no.: xxxxxxxx
+            .
           </p>
           <p>
-            For any complaints pertaining to securities broking please write to <a href='mailto:complaints@zerodha.com'>complaints@zerodha.com</a>,
-            for DP related issues write to <a href='mailto:dp@zerodha.com'>dp@zerodha.com</a>.
+            For any complaints pertaining to securities broking please write to <a href='mailto:complaints@BullChain.com'>complaints@BullChain.com</a>,
+            for DP related issues write to <a href='mailto:dp@BullChain.com'>dp@bullchain.com</a>.
             Please ensure you carefully read the Risk Disclosure Document as prescribed by SEBI | ICF.
           </p>
           <p>
@@ -96,7 +96,7 @@ function Footer() {
             Please write the Bank account number and sign the IPO application form to authorize your bank to make payment in case of allotment. 
             In case of non-allotment, the funds will remain in your bank account. <strong>As a business we don't give stock tips, 
             and have not authorized anyone to trade on behalf of others.</strong> 
-            If you find anyone claiming to be part of Zerodha and offering such services, please create a ticket here.
+            If you find anyone claiming to be part of BullChain and offering such services, please create a ticket here.
           </p>
         </div>
         <div className='d-flex justify-content-center  mb-4' style={{ fontSize: "12px", fontWeight: "bold" }}>
