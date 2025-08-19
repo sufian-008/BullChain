@@ -13,7 +13,7 @@ const Positions = () => {
     const [positions, setAlPositions] = useState([]);
 
     useEffect(()=>{
-      axios.get("http://localhost:3002/allPositions").then((res)=>{
+      axios.get("https://bullchain.onrender.com/allPositions").then((res)=>{
         console.log(res.data);
         setAlPositions(res.data);
       });
