@@ -5,15 +5,6 @@ It leverages cutting-edge technologies to provide **secure authentication**, **r
 
 ---
 
-## 📂 Project Structure  
-
-BullChain/
-│── backend/ # Node.js + Express API (authentication, DB, JWT, etc.)
-│── frontend/ # React app for users
-│── dashboard/ # React admin dashboard with MUI & charts
-
----
-
 ## ⚙️ Tech Stack  
 
 ### 🔹 Frontend (User App)  
