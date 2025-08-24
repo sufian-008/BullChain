@@ -8,7 +8,6 @@ BullChain/
 │── backend/        # Node.js + Express API (authentication, DB, JWT, etc.)
 │── frontend/       # React app for users
 │── dashboard/      # React admin dashboard with MUI & charts
-│── README.md       # Project documentation
 
 ⚙️ Tech Stack
 🔹 Frontend (User App)
@@ -138,4 +137,3 @@ Add screenshots of your UI, dashboard, and API workflow here.
 
 🌐 Deploy frontend & backend
 
-📱 Add mobile-friendly design
