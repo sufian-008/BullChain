@@ -27,16 +27,26 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Empty field validation
     if (!email || !password || !username) {
       return handleError("All fields are required");
     }
+
+    // Password length validation
+    if (password.length < 8) {
+      return handleError("Password must be at least 8 characters long");
+    }
+
     try {
       const { data } = await axios.post(
         "https://bullchain.onrender.com/api/signup",
         inputValue,
         { withCredentials: true }
       );
+
       const { success, message } = data;
+
       if (success) {
         handleSuccess(message);
         setTimeout(() => navigate("/"), 1000);
@@ -47,6 +57,7 @@ const Signup = () => {
       handleError(error.response?.data?.message || "Signup failed");
     }
 
+    // Reset form fields
     setInputValue({ email: "", password: "", username: "" });
   };
 
